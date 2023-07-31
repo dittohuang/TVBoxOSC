@@ -207,6 +207,7 @@ public class HomeActivity extends BaseActivity {
             if (hasPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
                 LOG.e("有");
             } else {
+                LOG.i("initData: Test Info");
                 LOG.e("无权限....");
             }
             return;
