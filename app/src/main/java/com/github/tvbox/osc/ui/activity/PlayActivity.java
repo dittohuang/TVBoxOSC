@@ -1161,7 +1161,7 @@ public class PlayActivity extends BaseActivity {
             if (url.endsWith("/favicon.ico")) {
                 return createXWalkWebResourceResponse("image/png", null, null);
             }
-            LOG.i("shouldInterceptLoadRequest url:" + url);
+            LOG.e("shouldInterceptLoadRequest url:" + url);
             boolean ad;
             if (!loadedUrls.containsKey(url)) {
                 ad = AdBlocker.isAd(url);
