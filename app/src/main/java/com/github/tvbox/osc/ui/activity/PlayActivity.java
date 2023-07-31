@@ -989,7 +989,7 @@ public class PlayActivity extends BaseActivity {
             if (url.endsWith("/favicon.ico")) {
                 return new WebResourceResponse("image/png", null, null);
             }
-            LOG.i("shouldInterceptRequest url:" + url);
+            LOG.e("shouldInterceptRequest url:" + url);
             boolean ad;
             if (!loadedUrls.containsKey(url)) {
                 ad = AdBlocker.isAd(url);
