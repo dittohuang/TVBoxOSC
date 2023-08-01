@@ -492,7 +492,7 @@ public class SourceViewModel extends ViewModel {
                         result.put("proKey", progressKey);
                         if (!result.has("flag"))
                             result.put("flag", playFlag);
-                        LOG.e(result.to_string());
+                        LOG.e(result.toString());
                         playResult.postValue(result);
                     } catch (Throwable th) {
                         th.printStackTrace();
