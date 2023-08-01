@@ -208,9 +208,10 @@ public class HomeActivity extends BaseActivity {
                 LOG.e("有");
             } else {
                 LOG.i("initData: Test Info");
-                LOG.i("initData: Test err");
+                LOG.e("initData: Test err");
                 LOG.e("无权限....");
             }
+            LOG.e("initData: Done");
             return;
         }
         showLoading();
