@@ -205,11 +205,11 @@ public class HomeActivity extends BaseActivity {
             showLoading();
             sourceViewModel.getSort(ApiConfig.get().getHomeSourceBean().getKey());
             if (hasPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-                LOG.e("有");
+                LOG.e("有123");
             } else {
                 LOG.i("initData: Test Info");
                 LOG.e("initData: Test err");
-                LOG.e("无权限....");
+                LOG.e("无权限....123");
             }
             LOG.e("initData: Done");
             return;
