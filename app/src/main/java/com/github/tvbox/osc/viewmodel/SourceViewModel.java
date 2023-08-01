@@ -480,7 +480,6 @@ public class SourceViewModel extends ViewModel {
         SourceBean sourceBean = ApiConfig.get().getSource(sourceKey);
         int type = sourceBean.getType();
         if (type == 3) {
-            LOG.e("sourceBean.getType()=3, sourcekey=" + sourceKey);
             spThreadPool.execute(new Runnable() {
                 @Override
                 public void run() {
@@ -516,6 +515,7 @@ public class SourceViewModel extends ViewModel {
                 }
                 result.put("playUrl", playUrl);
                 result.put("flag", playFlag);
+                LOG.e(result.toString());
                 playResult.postValue(result);
             } catch (Throwable th) {
                 th.printStackTrace();
