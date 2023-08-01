@@ -486,6 +486,7 @@ public class PlayActivity extends BaseActivity {
             mController.showParse(false);
             return;
         }
+        LOG.e(vs.url);
         sourceViewModel.getPlay(sourceKey, mVodInfo.playFlag, progressKey, vs.url);
     }
 
@@ -500,6 +501,7 @@ public class PlayActivity extends BaseActivity {
         ParseBean parseBean = null;
         mController.showParse(useParse);
         if (useParse) {
+            LOG.e("useParse=true");
             parseBean = ApiConfig.get().getDefaultParse();
         } else {
             if (playUrl.startsWith("json:")) {
@@ -522,6 +524,7 @@ public class PlayActivity extends BaseActivity {
             }
         }
         loadFound = false;
+        LOG.e("doParse(parseBean)");
         doParse(parseBean);
     }
 
@@ -568,11 +571,13 @@ public class PlayActivity extends BaseActivity {
     ExecutorService parseThreadPool;
 
     private void doParse(ParseBean pb) {
+        LOG.e("doParse()");
         stopParse();
         if (pb.getType() == 0) {
             setTip("正在嗅探播放地址", true, false);
             mHandler.removeMessages(100);
             mHandler.sendEmptyMessageDelayed(100, 20 * 1000);
+            LOG.e(pb.getUrl()+webUrl);
             loadWebView(pb.getUrl() + webUrl);
         } else if (pb.getType() == 1) { // json 解析
             setTip("正在解析播放地址", true, false);

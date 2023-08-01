@@ -480,6 +480,7 @@ public class SourceViewModel extends ViewModel {
         SourceBean sourceBean = ApiConfig.get().getSource(sourceKey);
         int type = sourceBean.getType();
         if (type == 3) {
+            LOG("sourceBean.getType()=3");
             spThreadPool.execute(new Runnable() {
                 @Override
                 public void run() {
@@ -499,6 +500,7 @@ public class SourceViewModel extends ViewModel {
                 }
             });
         } else if (type == 0 || type == 1) {
+            LOG("sourceBean.getType()=0|1");
             JSONObject result = new JSONObject();
             try {
                 result.put("key", url);
