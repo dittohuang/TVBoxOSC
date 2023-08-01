@@ -607,6 +607,7 @@ public class PlayActivity extends BaseActivity {
                         @Override
                         public void onSuccess(Response<String> response) {
                             String json = response.body();
+                            LOG.e(json);
                             try {
                                 JSONObject rs = jsonParse(webUrl, json);
                                 HashMap<String, String> headers = null;
