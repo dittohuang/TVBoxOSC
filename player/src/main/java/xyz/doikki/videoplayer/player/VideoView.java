@@ -35,7 +35,7 @@ import xyz.doikki.videoplayer.render.RenderViewFactory;
 import xyz.doikki.videoplayer.util.L;
 import xyz.doikki.videoplayer.util.PlayerUtils;
 
-import com.github.tvbox.osc.util.LOG;
+// import com.github.tvbox.osc.util.LOG;
 
 /**
  * 播放器
@@ -634,7 +634,7 @@ public class VideoView<P extends AbstractPlayer> extends FrameLayout
         mAssetFileDescriptor = null;
         mUrl = url;
         mHeaders = headers;
-        LOG.e(mUrl);
+        // LOG.e(mUrl);
     }
 
     /**

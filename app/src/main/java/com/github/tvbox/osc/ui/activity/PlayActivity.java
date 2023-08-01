@@ -254,6 +254,7 @@ public class PlayActivity extends BaseActivity {
                         hideTip();
                         PlayerHelper.updateCfg(mVideoView, mVodPlayerCfg);
                         mVideoView.setProgressKey(progressKey);
+                        LOG.e(url);
                         if (headers != null) {
                             mVideoView.setUrl(url, headers);
                         } else {
