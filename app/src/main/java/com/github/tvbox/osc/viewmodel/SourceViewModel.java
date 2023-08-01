@@ -480,12 +480,13 @@ public class SourceViewModel extends ViewModel {
         SourceBean sourceBean = ApiConfig.get().getSource(sourceKey);
         int type = sourceBean.getType();
         if (type == 3) {
-            LOG.e("sourceBean.getType()=3");
+            LOG.e("sourceBean.getType()=3, sourcekey=" + sourceKey);
             spThreadPool.execute(new Runnable() {
                 @Override
                 public void run() {
                     Spider sp = ApiConfig.get().getCSP(sourceBean);
                     String json = sp.playerContent(playFlag, url, ApiConfig.get().getVipParseFlags());
+                    LOG.e("run, json=" + json);
                     try {
                         JSONObject result = new JSONObject(json);
                         result.put("key", url);
