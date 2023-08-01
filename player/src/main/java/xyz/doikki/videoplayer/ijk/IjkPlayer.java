@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Surface;
 import android.view.SurfaceHolder;
+import android.util.Log;
 
 import java.util.Map;
 
@@ -35,7 +36,7 @@ public class IjkPlayer extends AbstractPlayer implements IMediaPlayer.OnErrorLis
     public void initPlayer() {
         mMediaPlayer = new IjkMediaPlayer();
         //native日志
-        IjkMediaPlayer.native_setLogLevel(VideoViewManager.getConfig().mIsEnableLog ? IjkMediaPlayer.IJK_LOG_INFO : IjkMediaPlayer.IJK_LOG_SILENT);
+        IjkMediaPlayer.native_setLogLevel(VideoViewManager.getConfig().mIsEnableLog || true ? IjkMediaPlayer.IJK_LOG_INFO : IjkMediaPlayer.IJK_LOG_SILENT);
         setOptions();
         mMediaPlayer.setOnErrorListener(this);
         mMediaPlayer.setOnCompletionListener(this);
@@ -246,6 +247,7 @@ public class IjkPlayer extends AbstractPlayer implements IMediaPlayer.OnErrorLis
         IjkTrackInfo[] trackInfo = mMediaPlayer.getTrackInfo();
         if (trackInfo == null) return false;
         for (IjkTrackInfo info : trackInfo) {
+            Log.e("TVBox", info.toString());
             if (info.getTrackType() == ITrackInfo.MEDIA_TRACK_TYPE_VIDEO) {
                 return true;
             }
